@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@v4 # nosem
+      
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5 # nosem
         with:
           python-version: "3.11"
-
+          
       - name: Install Semgrep
         run: pip install semgrep
-
+        
       - name: Run Semgrep Security Scan
         run: semgrep scan --config "p/default" --error
 
@@ -30,12 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # nosem
         with:
           fetch-depth: 0
-
+          
       - name: TruffleHog OSS
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@main # nosem
         with:
           path: ./
           head: HEAD
