@@ -18,7 +18,7 @@ jobs:
         uses: returntocorp/semgrep-action@v1
         with:
           config: "p/default"
-          generateSarif: "1"
+          args: "--error"
 
   secret-scanning:
     name: Hardcoded Secret Scanning (TruffleHog)
@@ -33,4 +33,4 @@ jobs:
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-          extra_args: --debug --only-verified
+          extra_args: "--fail"
